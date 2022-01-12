@@ -1,8 +1,5 @@
-# 110-1-NTU-DBME5028-Final
-Final Project : Histology images query \
-Teem members:\
-r09942171 黃繼綸 \
-f09921058 陳羿翔
+# Histology_Images_Query (Pytorch)
+This repo is for the midtern project of the course Deep Learning in Medical Imaging (DLMI). Please refer to the technical document if you are interested in this task.
 
 # Environment
 OS : Ubuntu 16.04 \
