@@ -1,3 +1,10 @@
+'''
+Modified Date: 2022/01/13
+Author: Gi-Luen Huang
+mail: come880412@gmail.com
+'''
+
+"""Ref: https://github.com/lucidrains/byol-pytorch/blob/master/byol_pytorch/byol_pytorch.py"""
 import copy
 import random
 from functools import wraps
