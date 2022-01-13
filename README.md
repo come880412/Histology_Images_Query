@@ -18,7 +18,7 @@ Since we don’t have the label of each image, we solve this task by self-superv
 - The metric for measuring performance is c-index \
  _**c-index = correct predcitions / # of query pairs**_
 
-- The experiment of different threshold is illustrated below:
+- The experiment of different threshold is illustrated below. Where the threshold is used to determine whether the pair query images are in the same category after computing the mean square error between the pair query images.
 
 | Models | Threshold | Public(%) | Private(%) |
 |:----------:|:----------:|:----------:|:----------:|
@@ -29,28 +29,40 @@ Since we don’t have the label of each image, we solve this task by self-superv
 | ResNeXt101 | 0.60 | 86.16 | 86.34 |
 | ResNeXt101 | 0.63 | 86.61 | 86.87 |
 | ResNeXt101 | 0.68 | 87.18 | 87.54 |
-| ResNeXt101 | _**0.705**_ | _**87.21**_ | _**87.58**_
-Where the threshold is used to determine whether the pair query images are in the same category after computing the mean square error between the pair query images. 
+| ResNeXt101 | _**0.705**_ | _**87.21**_ | _**87.58**_ |
 
-# Environment
-OS : Ubuntu 16.04 \
-Language: Python37
+- _**PCA visualization**_ \
+Because we don't know the number of class of this dataset, we can apply a method of dimension reduction to cluster the closest images. From the figure below, we can find that this dataset can roughly be split into four clusters.
+<p align="center">
+<img src="https://github.com/come880412/Histology_Images_Query/blob/main/images/PCA_result.jpg" width=40% height=40%>
+</p>
 
-# How to use
-### Download the pretrained models
+- _**Query images v.s gallery images**_ \
+We also use the query image (the 1st column) to search the gallery images with the closest distance. Since the representations learned from self-supervised learning (SSL) are representative, we could compute the Euclidean distance between the query image and the gallery image to find the images with the closest class. The figure is illustrated below, and we list the top 10 images closest to the query image.
+<p align="center">
+<img src="https://github.com/come880412/Histology_Images_Query/blob/main/images/similar_images.jpg" width=40% height=40%>
+</p>
+
+# Getting started
+### Download the pretrained models and the dataset
+- _**Pretrained models**_
 ```bash
 $ bash download.sh
 ```
+- _**Dataset**_ \
+Please download the dataset from [here](https://bcsegmentation.grand-challenge.org/)
 
 ### Training from scratch
 ```bash
 $ python train.py --data path/to/train
 ```
 
-### Testing
+### Inference
 ```bash
 $ python inference.py --data path/to/test
 ```
+
+If you have any implementation problem, feel free to contact me! come880412@gmail.com
 
 # References
 [1] Grill, J. B., Strub, F., Altché, F., Tallec, C., Richemond, P. H., Buchatskaya, E., ... & Valko, M. (2020). Bootstrap your own latent: A new approach to self-supervised learning. arXiv preprint arXiv:2006.07733.
