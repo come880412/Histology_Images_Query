@@ -1,8 +1,12 @@
-import json, os, random, tqdm, shutil
-import numpy as np
-import re
+'''
+Modified Date: 2022/01/13
+Author: Gi-Luen Huang
+mail: come880412@gmail.com
+'''
+
+import random
 import cv2
-from PIL import Image, ImageOps, ImageFilter
+from PIL import ImageOps, ImageFilter
 
 class Solarization(object):
     def __init__(self, p):

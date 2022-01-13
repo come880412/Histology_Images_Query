@@ -1,16 +1,21 @@
-import torch
-from byol_pytorch.byol_pytorch import BYOL
-from torch.nn.modules.batchnorm import BatchNorm1d
-from torchvision import models
-from dataset import Histology_data, query_dataset
+'''
+Modified Date: 2022/01/13
+Author: Gi-Luen Huang
+mail: come880412@gmail.com
+'''
+
 import argparse
-from torch.utils.data import DataLoader
 import tqdm
-import torch.nn as nn
 import numpy as np
-from torch.optim.lr_scheduler import StepLR
 import os
+
+import torch
+from torchvision import models
 import torch.nn.functional as F
+from torch.utils.data import DataLoader
+
+from byol_pytorch.byol_pytorch import BYOL
+from dataset import Histology_data, query_dataset
 
 import warnings
 warnings.filterwarnings("ignore")

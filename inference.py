@@ -1,13 +1,20 @@
+'''
+Modified Date: 2022/01/13
+Author: Gi-Luen Huang
+mail: come880412@gmail.com
+'''
+
 import argparse
-import torch
-from dataset import query_dataset
-from torch.utils.data import DataLoader
 import tqdm
 import numpy as np
+
+import torch
+from torch.utils.data import DataLoader
 from torchvision import models
-from functools import wraps
 import torch.nn.functional as F
-import torch.nn as nn
+
+from dataset import query_dataset
+
 
 def loss_fn(x, y):
     x = F.normalize(x, dim=-1, p=2)
